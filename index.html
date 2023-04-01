@@ -4,52 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denis Novik</title>
+    <title>TEST</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
-        <ul>
-            <li><a href="./">Home</a></li>
-            <li><a href="">About me</a></li>
-            <li><a href="">Skills</a></li>
-            <li><a href="">Portfolio</a></li>
-            <li><a href="">Contacts</a></li>
+    <article class="start-window isActive">
+        <h1 class="article-title">Hello!</h1>
+        <p class="article-text">Choose your language</p>
+        <div class="buttons-container">
+            <button type="button" class="DE"></button>
+            <img class="ruffs-img" src="./images/Ruffs.png" alt="">
+            <button type="button" class="UA"></button> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Patron_with_Golden_Paw_award.jpg/280px-Patron_with_Golden_Paw_award.jpg"
+            alt="" class="patron-img">
+        </div>
+        <div class="answer-container">
+            <h1></h1>
+            <p></p>
+            <button type="button">OK</button>
+        </div>
+    </article>
+    <article class="question-article">
+        <h2 class="question-title"></h2>
+        <ul class="answers-list">
+            <li class="answer-item">
+                <button class="answer answer-button-1"></button>
+            </li>
+            <li class="answer-item">
+                <button class="answer answer-button-2"></button>
+            </li>
+            <li class="answer-item">
+                <button class="answer answer-button-3"></button>
+            </li>
         </ul>
-    </header>
-    <main>
-        <section>
-            <h1>Denys
-            Novik</h1>
-            <p>UX | UI designer</p> 
-            <p> 24 years old, Minsk</p>
-            <button>RU</button>
-            <button>EN</button>
-            <img src="./images/BSPP2266.jpg" alt="Denys Novik">
-        </section>
-        <section>
-            <h2>About me</h2>
-            <pre>Hi, I'm Denis – UX/UI designer from Minsk. 
-                I'm interested in design and everything connected with it.
-                
-                I'm studying at courses "Web and mobile design 
-                interfaces" in IT-Academy.
-                
-                Ready to implement excellent projects
-                 with wonderful people.</pre>
-        </section>
-    </main>
-    <footer>
-        <h2>Contacts</h2>
-        <pre>Want to know more or just chat? 
-            You are welcome!</pre>
-            <button type="button">Send message</button>
-            <ul>
-                <li><a href=""><img src="" alt="picture"></a></li>
-                <li><a href=""><img src="" alt="picture"></a></li>
-                <li><a href=""><img src="" alt="picture"></a></li>
-                <li><a href=""><img src="" alt="picture"></a></li>
-            </ul>
-            <p>Like me on LinkedIn, Instagram, Behance, Dribble</p>
-    </footer>
+        <button class="start-test">Почати тестування</button>
+    </article>
+    <article class="final-article">
+        <h1>Вітаю! Ти пройшов тест!</h1>
+        <p></p>
+    </article>
+    <script src="./script.js"></script>
 </body>
 </html>
