@@ -38,7 +38,7 @@ const pickedDE = () => {
 const pickedUA = () => {
     tags.answerContainerEl.classList.toggle("isActive");
     tags.answerTitleEl.textContent = "Вітаю пупсику!";
-    tags.answerTextEl.textContent = "Бла-бла-бла";
+    tags.answerTextEl.textContent = "Я зробив спеціально для тебе тест, котрий включає в себе 12 питань різної тематики та складності. Бажаю успіху, за списування я тебе підораса каструю!";
 
     tags.answerButtonEl.addEventListener("click", closeAnswerContainerUA);
 
