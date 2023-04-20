@@ -1,0 +1,56 @@
+.darkModeButton {
+    background-color: black;
+}
+
+.darkModeButton:hover,
+.darkMode:focus {
+    background-color: aqua;
+}
+
+.darkModeButton > .main-circle,
+.darkMode > .main-circle {
+    left: 65%;
+    background-color: gray;
+}
+
+.darkModeButton:hover > .main-circle,
+.darkMode:focus > .main-circle {
+    background-color: yellow;
+    top: 10%;
+    left: 5%;
+}
+
+.darkCloud1 {
+    left: 50%;
+}
+
+.darkCloud2 {
+    left: 65%;
+    bottom: 0px;
+}
+
+.darkCloud3 {
+    left: 34.3%;
+    bottom: 3.75%;
+}
+
+.darkModeButton:hover .darkCloud1,
+.darkMode:focus .darkCloud1 {
+    left: 6.7%;
+}
+
+.darkModeButton:hover .darkCloud2,
+.darkMode:focus .darkCloud2 {
+    bottom: 2.5%;
+    left: 28.9%;
+}
+
+.darkModeButton:hover .darkCloud3,
+.darkMode:focus .darkCloud3 {
+    bottom: 17.5%;
+    left: 14.4%;
+}
+
+.darkMode {
+    background-color: blueviolet;
+}

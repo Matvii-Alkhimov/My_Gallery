@@ -35,20 +35,35 @@
 
 .buttons-container {
     width: 500px;
-    /* height: 380px; */
+    height: 430px;
     /* position: relative; */
     margin-right: auto;
     margin-left: auto;
-    margin-top: 120px;
-    display: flex;
+    margin-top: 60px;
+    
     justify-content: space-between;
 }
 
+.buttons-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.button-item {
+    /* width: 200px; */
+    width: calc((100% - 4 * 30px) / 2);
+    height: 150px;
+    margin: 30px;
+}
+
 .UA {
+    width: 100%;
+    height: 100%;
     border: 2px black solid;
     border-radius: 20%;
-    width: 200px;
-    height: 150px;
     background-image: linear-gradient(
         to bottom,
         blue 50%,
@@ -59,10 +74,10 @@
 }
 
 .DE {
+    width: 100%;
+    height: 100%;
     border: 2px black solid;
     border-radius: 20%;
-    width: 200px;
-    height: 150px;
     background-image: linear-gradient(
         to bottom,
         black 34%,
@@ -73,7 +88,35 @@
     transition: all 250ms linear ;
 }
 
-.ruffs-img {
+.EN {
+    width: 100%;
+    height: 100%;
+    border: 2px black solid;
+    border-radius: 20%;
+    background-image: 
+    url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+    transition: all 250ms linear ;
+}
+
+.IT {
+    width: 100%;
+    height: 100%;
+    border: 2px black solid;
+    border-radius: 20%;
+    background-image: linear-gradient(
+        to right,
+        green 34%,
+        white 34% 67%,
+        red 67%
+    );
+    cursor: pointer;
+    transition: all 250ms linear ;
+}
+
+.DE-img {
     width: 300px;
     position: absolute;
     opacity: 0;
@@ -83,7 +126,7 @@
     transition: all 250ms linear;
 }
 
-.patron-img {
+.UA-img {
     width: 300px;
     position: absolute;
     opacity: 0;
@@ -93,23 +136,56 @@
     transition: all 250ms linear;
 }
 
+.EN-img {
+    width: 300px;
+    position: absolute;
+    opacity: 0;
+    border-radius: 40px;
+    bottom: 50px;
+    left: 100px;
+    transition: all 250ms linear;
+}
+
+.IT-img {
+    width: 300px;
+    position: absolute;
+    opacity: 0;
+    border-radius: 40px;
+    bottom: 50px;
+    right: 100px;
+    transition: all 250ms linear;
+}
+
 .UA:hover,
 .UA:focus,
 .DE:hover,
-.DE:focus {
-    scale: 1.5;
+.DE:focus,
+.EN:hover,
+.EN:focus,
+.IT:hover,
+.IT:focus {
+    scale: 1.2;
 }
 
-.DE:hover + .ruffs-img,
-.DE:focus + .ruffs-img {
+.DE:hover + .DE-img,
+.DE:focus + .DE-img {
     opacity: 1;
 }
 
-.UA:hover + .patron-img,
-.UA.focus + .patron-img {
+.UA:hover + .UA-img,
+.UA.focus + .UA-img {
     opacity: 1;
 }
 
+.EN:hover + .EN-img,
+.EN:hover + .EN-img {
+    opacity: 1;
+}
+
+.IT:hover + .IT-img,
+.IT:focus + .IT-img {
+    opacity: 1;
+}
 
 .answer-container {
     position: absolute;
@@ -204,6 +280,13 @@
     font-size: 70px;
 }
 
+.question-number {
+    position: absolute;
+    bottom: -5%;
+    right: 20px;
+    font-size: 50px;
+}
+
 .start-test {
     width: 300px;
     height: 80px;
@@ -232,7 +315,6 @@
 }
 
 .final-article h1 {
-    /* width: 200px; */
     text-align: center;
     margin-right: auto;
     margin-left: auto;
@@ -241,7 +323,6 @@
 }
 
 .final-article p {
-    /* width: 400px; */
     text-align: center;
     margin-right: auto;
     margin-left: auto;

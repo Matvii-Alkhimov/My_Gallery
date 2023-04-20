@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..//css/gallery.css">
+</head>
+<body>
+    <article class="gallery-container">
+        <h1 class="title">Welcome to the Gallery!</h1>
+        <div class="pictures-container">
+            <ul class="pictures-list">
+                <li class="picture-item">
+                    <button type="button" class="toPick create-picture-button">
+                        <svg class="button-img">
+                            <use href="..//images/symbol-defs2.svg#icon-plus"></use>
+                        </svg>
+                    </button>
+                </li> 
+                <li class="picture-item change-picture-button-item">
+                    <button type="button" class="toPick change-picture-button">
+                        <svg class="button-img">
+                            <use href="..//images/symbol-defs3.svg#icon-pencil"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="picture-item isNotActive close-change-mode-button-item">
+                    <button type="button" class="toPick close-change-mode-button">
+                        <svg class="button-img">
+                            <use href="..//images/symbol-defs3.svg#icon-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            <div class="backdrop isNotActive">
+                <div class="change-window isNotActive">
+                <h2 class="change-window-title"></h2>
+                <button class="close-change-window-button">
+                    <svg width="30" height="30" class="close-icon">
+                        <use href="..//images/symbol-defs2.svg#icon-plus"></use>
+                    </svg>
+                </button>
+                <div class="src-container">
+                    <p class="src-info">SRC: <a target="_blank" class="src">Link</a></p>
+                    <button class="src-change-button" type="button">Change</button>
+                    <form class="change-src-form isNotActive">
+                        <label><input name="src" class="change-src-input" type="text"></label>
+                        <button class="change-src-ok-button change-ok-button" type="submit">OK</button>
+                    </form>
+                </div>
+                <div class="alt-container">
+                    <p class="alt-info">NAME: <span class="alt"></span></p>
+                    <button class="alt-change-button" type="button">Change</button>
+                    <form class="change-alt-form isNotActive">
+                        <label><input name="alt" class="change-alt-input" type="text"></label>
+                        <button class="change-alt-button change-ok-button" type="submit">OK</button>
+                    </form>
+                </div>
+                <button class="delete-picture-button">Delete</button>
+            </div>
+        </div>
+    </div>
+    </article>
+    <article class="create-container">
+        <form class="create-form">
+            <label for="" class="src-label">
+                SRC = 
+                <input name="src" required type="text" class="src-input">
+            </label>
+            <label for="" class="alt-label">
+                ALT = 
+                <input name="alt" type="text" class="alt-input">
+            </label>
+            <label id="name-checked-label">
+                CREATE PICTURE WITH THE NAME
+                <input name="image-name" id="name-checked-input" type="checkbox">
+            </label>
+            <label class="quantity-label">
+                QUANTITY: <span class="quantity-span"></span>
+                <input name="quantity" min="1" max="100" type="range" class="quantity-input">
+            </label>
+            <button type="submit" class="create-button">Create</button>
+        </form>
+        <button class="close-create-window-button">Close</button>
+    </article>
+
+    <script src="..//js/gallery.js"></script>
+</body>
+</html>
