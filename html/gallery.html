@@ -20,16 +20,23 @@
                     </button>
                 </li> 
                 <li class="picture-item change-picture-button-item">
-                    <button type="button" class="toPick change-picture-button">
+                    <button type="button" class="toPick change-and-close-buttons change-picture-button">
                         <svg class="button-img">
                             <use href="..//images/symbol-defs3.svg#icon-pencil"></use>
                         </svg>
                     </button>
                 </li>
                 <li class="picture-item isNotActive close-change-mode-button-item">
-                    <button type="button" class="toPick close-change-mode-button">
+                    <button type="button" class="toPick change-and-close-buttons close-change-mode-button">
                         <svg class="button-img">
                             <use href="..//images/symbol-defs3.svg#icon-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="picture-item remove-all-pictures-item">
+                    <button type="button" class="toPick delete-all-pictures-button">
+                        <svg class="button-img">
+                            <use href="..//images/symbol-defs3.svg#icon-trash"></use>
                         </svg>
                     </button>
                 </li>
@@ -37,6 +44,7 @@
             <div class="backdrop isNotActive">
                 <div class="change-window isNotActive">
                 <h2 class="change-window-title"></h2>
+                <article  class="picture-item example-look-image"></article>
                 <button class="close-change-window-button">
                     <svg width="30" height="30" class="close-icon">
                         <use href="..//images/symbol-defs2.svg#icon-plus"></use>
@@ -53,6 +61,10 @@
                 <div class="alt-container">
                     <p class="alt-info">NAME: <span class="alt"></span></p>
                     <button class="alt-change-button" type="button">Change</button>
+                    <label id="name-checked-label">
+                        ADD TEXT
+                        <input name="imageNameExample" id="name-checked-input-example" type="checkbox">
+                    </label>
                     <form class="change-alt-form isNotActive">
                         <label><input name="alt" class="change-alt-input" type="text"></label>
                         <button class="change-alt-button change-ok-button" type="submit">OK</button>
@@ -71,11 +83,11 @@
             </label>
             <label for="" class="alt-label">
                 ALT = 
-                <input name="alt" type="text" class="alt-input">
+                <input min="1" max="10"  name="alt" type="text" class="alt-input">
             </label>
             <label id="name-checked-label">
                 CREATE PICTURE WITH THE NAME
-                <input name="image-name" id="name-checked-input" type="checkbox">
+                <input name="imageName" id="name-checked-input" type="checkbox">
             </label>
             <label class="quantity-label">
                 QUANTITY: <span class="quantity-span"></span>

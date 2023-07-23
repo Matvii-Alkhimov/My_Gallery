@@ -22,16 +22,22 @@ const elements = {
     changePictureWindowEl: document.querySelector(".change-window"),
     backdropEl: document.querySelector(".backdrop"),
     changeWindowTitleEl: document.querySelector(".change-window-title"),
+    exampleLookImageEl: document.querySelector(".example-look-image"),
     srcInfo: document.querySelector(".src"),
     altInfo: document.querySelector(".alt"),
     srcChangeButtonEl: document.querySelector(".src-change-button"),
     altChangeButtonEl: document.querySelector(".alt-change-button"),
     srcChangeFormEl: document.querySelector(".change-src-form"),
     altChangeFormEl: document.querySelector(".change-alt-form"),
+    nameCheckedInputExample: document.querySelector("#name-checked-input-example"),
     deletePictureButtonEl: document.querySelector(".delete-picture-button"),
+    deleteAllPicturesButtonEl: document.querySelector(".delete-all-pictures-button"),
     createdPicturesEl: document.querySelectorAll(".created-image"),
     newImagesArr: [],
     openChangeModalFunction(event) {
+
+        // Start of Function
+
         event.target.classList.add("pickedImage");
         elements.changePictureWindowEl.classList.toggle("isNotActive");
         elements.backdropEl.classList.replace("isNotActive", "isActive");
@@ -40,11 +46,63 @@ const elements = {
         const pickedItem = elements.createdElementsEl[neededIndex];
         elements.changeWindowTitleEl.textContent = `The information about the picture number ${neededIndex + 1}`;
         elements.srcInfo.href = `${elements.newImagesArr[neededIndex].src}`;
+        if (!pickedItem.classList.contains("picture-item-with-text")) {
+            elements.exampleLookImageEl.innerHTML = `<img 
+        src="${elements.newImagesArr[neededIndex].src}" 
+        class="created-image">
+        </img>`
+        
+        } else {
+            elements.exampleLookImageEl.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>
+            <p class="image-text" >${elements.newImagesArr[neededIndex].alt}</p>`;
+            elements.nameCheckedInputExample.checked = "true";
+            
+
+        }
+
+        // Create/Remove Text of Image
+
+        const createTextImageFunction = () => {
+            if (elements.nameCheckedInputExample.checked) {
+            elements.exampleLookImageEl.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>
+            <p class="image-text" >${elements.newImagesArr[neededIndex].alt}</p>`;
+            pickedItem.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>
+            <p class="image-text" >${elements.newImagesArr[neededIndex].alt}</p>`;
+            pickedItem.classList.add("picture-item-with-text");
+        } else if (!elements.nameCheckedInputExample.checked) {
+            elements.exampleLookImageEl.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>`;
+            pickedItem.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>`;
+            pickedItem.classList.remove("picture-item-with-text");
+            }
+        }
+
+        elements.nameCheckedInputExample.addEventListener("change", createTextImageFunction)
+
+        // Information about Image 
+
         if (elements.newImagesArr[neededIndex].alt !== "") {
             elements.altInfo.textContent = `${elements.newImagesArr[neededIndex].alt.toUpperCase()}`;
         } else {
             elements.altInfo.textContent = "Doesn`t have";
         }
+
+
+        // Change Characteristics of Image 
 
         const changeSrcFunction = () => {
             elements.srcChangeFormEl.classList.toggle("isNotActive");
@@ -62,7 +120,27 @@ const elements = {
             event.currentTarget.elements.src.value = "";
             elements.srcChangeFormEl.classList.toggle("isNotActive");
             elements.srcChangeButtonEl.classList.toggle("isNotActive");
-            elements.srcInfo.href = `${elements.newImagesArr[neededIndex].src}`;
+            if (elements.nameCheckedInputExample.checked) {
+                elements.exampleLookImageEl.innerHTML = `<img 
+                src="${elements.newImagesArr[neededIndex].src}" 
+                class="created-image">
+                </img>
+                <p class="image-text" >${elements.newImagesArr[neededIndex].alt}</p>`;
+                pickedItem.innerHTML = `<img 
+                src="${elements.newImagesArr[neededIndex].src}" 
+                class="created-image">
+                </img>
+                <p class="image-text" >${elements.newImagesArr[neededIndex].alt}</p>`;
+            } else if (!elements.nameCheckedInputExample.checked) {
+                elements.exampleLookImageEl.innerHTML = `<img 
+                src="${elements.newImagesArr[neededIndex].src}" 
+                class="created-image">
+                </img>`;
+                pickedItem.innerHTML = `<img 
+                src="${elements.newImagesArr[neededIndex].src}" 
+                class="created-image">
+                </img>`;
+        }
         }
 
         const changeAltOkFunction = (event) => {
@@ -72,6 +150,10 @@ const elements = {
             elements.altChangeFormEl.classList.toggle("isNotActive");
             elements.altChangeButtonEl.classList.toggle("isNotActive");
             elements.altInfo.textContent = `${elements.newImagesArr[neededIndex].alt.toUpperCase()}`;
+            elements.exampleLookImageEl.innerHTML = `<img 
+            src="${elements.newImagesArr[neededIndex].src}" 
+            class="created-image">
+            </img>`;
         }
 
         elements.srcChangeButtonEl.addEventListener("click", changeSrcFunction);
@@ -79,6 +161,8 @@ const elements = {
 
         elements.srcChangeFormEl.addEventListener("submit", changeSrcOkFunction);
         elements.altChangeFormEl.addEventListener("submit", changeAltOkFunction);
+
+        // Close Change Window 
 
         const closeChangeWindowFunction = () => {
             elements.newImagesArr.forEach((image) => image.classList.remove("pickedImage"));
@@ -97,6 +181,8 @@ const elements = {
         }
 
         elements.closeChangeWindowButtonEl.addEventListener("click", closeChangeWindowFunction);
+
+        // Delete Picture 
 
         const deletePictureFunction = () => {
             const sureMessage = confirm(`Are you sure to delete picture number ${neededIndex + 1}?`);
@@ -118,6 +204,7 @@ const elements = {
 
 const openCreateWindowFunction = () => {
     elements.createPictureWindowEl.classList.add("createContainerOpen");
+    elements.backdropEl.classList.remove("isNotActive");
 }
 
 elements.openPictureCreaterButtonEl.addEventListener("click", openCreateWindowFunction);
@@ -133,6 +220,7 @@ elements.quantityInputEl.addEventListener("input", watchQuantityFunction)
 
 const closeCreateWindowFunction = () => {
     elements.createPictureWindowEl.classList.remove("createContainerOpen");
+    elements.backdropEl.classList.add("isNotActive");
     elements.srcSpanEl.value = "";
     elements.altSpanEl.value = "";
     elements.quantityInputEl.value = 1;
@@ -144,9 +232,6 @@ elements.closeCreateWindowButtonEl.addEventListener("click", closeCreateWindowFu
 const createNewImageFunction = (event) => {
     event.preventDefault();
     elements.createPictureWindowEl.classList.remove("createContainerOpen");
-    if (event.currentTarget.elements.image-name.checked) {
-        alert()
-    }
     for (let i = 1; i <= event.currentTarget.elements.quantity.value; i += 1) {
         const newEl = document.createElement("li");
         newEl.classList.add("picture-item");
@@ -155,13 +240,24 @@ const createNewImageFunction = (event) => {
         alt="${event.currentTarget.elements.alt.value}" 
         class="created-image">
         </img>`;
-        
+        if (event.currentTarget.elements.imageName.checked) {
+            const imageText = document.createElement("p");
+            if (event.currentTarget.elements.alt.value === "") {
+                imageText.textContent = "No name";
+            } else {
+                imageText.textContent = event.currentTarget.elements.alt.value;
+            }
+            imageText.classList.add("image-text");
+            newEl.append(imageText);
+            newEl.classList.add("picture-item-with-text");
+        }
         elements.picturesListEl.prepend(newEl);
     }
     elements.srcSpanEl.value = "";
     elements.altSpanEl.value = "";
     elements.quantityInputEl.value = 1;
     elements.quantitySpanEl.textContent = elements.quantityInputEl.value;
+    elements.backdropEl.classList.add("isNotActive");
 }
 
 elements.createNewImageFormEl.addEventListener("submit", createNewImageFunction);
@@ -186,6 +282,12 @@ const removeChangeModeFunction = () => {
 
 elements.removeChangeModeButtonEl.addEventListener("click", removeChangeModeFunction);
 
+const deleteAllPicturesFunction = () => {
+    elements.createdElementsEl = document.querySelectorAll(".picture-item");
+    for (let i = 0; i <= elements.createdElementsEl.length - 6; i += 1) {
+        elements.createdElementsEl[i].remove();
+    }
+    elements.createdElementsEl = [];
+}
 
-
-
+elements.deleteAllPicturesButtonEl.addEventListener("click", deleteAllPicturesFunction);
